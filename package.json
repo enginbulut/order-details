@@ -1,0 +1,45 @@
+{
+  "name": "order-details",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "nodemon": "nodemon index.js"
+  },
+  "author": "Engin Bulut",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "concat-stream": "^1.6.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "gravatar": "^1.6.0",
+    "guid": "0.0.12",
+    "jsonwebtoken": "^8.4.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.12",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-long": "^0.2.1",
+    "mongoose-sequence": "^4.0.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "restify": "^8.5.1",
+    "restify-router": "^0.5.1",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6",
+    "eslint": "^5.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enginbulut/order-details.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enginbulut/order-details/issues"
+  },
+  "homepage": "https://github.com/enginbulut/order-details#readme"
+}
