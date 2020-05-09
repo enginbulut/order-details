@@ -53,6 +53,7 @@ const getProducts = async () => {
 
 const deleteProduct = async id => {
   const product = await ProductModel.getProductById(id);
+
   if (!product) {
     let errors = {};
     errors.name = "Product can not found";
