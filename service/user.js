@@ -114,7 +114,7 @@ const updateRole = async (id, payload) => {
   user.role = role;
 
   await UserModel.save(user);
-
+  //delete sensitive data
   delete user.password;
   delete user.date;
 
