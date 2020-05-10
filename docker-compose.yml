@@ -1,0 +1,31 @@
+version: '3'
+services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "3050:80"
+    depends_on:
+    - api
+    - client
+  api:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./
+    command: npm run server
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    environment:
+      - SECRETORKEY=netuceapi
+      - MONGOURI=mongodb://admin:netuce123@ds139193.mlab.com:39193/netuce-db
+  client:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app

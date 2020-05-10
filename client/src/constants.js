@@ -1,5 +1,4 @@
-//TODO: get from an environment variable
-let apiUrl = "http://localhost:5000/api";
+let apiUrl = "/api";
 
 export const apiConstants = {
   apiUrl: apiUrl

@@ -24,7 +24,6 @@ class ProductList extends Component {
           <Table.HeaderCell>Adet</Table.HeaderCell>
           <Table.HeaderCell>Fiyat(TL)</Table.HeaderCell>
         </Table.Header>
-
         <Table.Body>
           {products &&
             products.map(product => (
@@ -32,11 +31,13 @@ class ProductList extends Component {
                 <Table.Cell textAlign="left">{product.productid}</Table.Cell>
                 <Table.Cell textAlign="left">{product.productName}</Table.Cell>
                 <Table.Cell textAlign="right">
-                  {product.productPrice.toFixed(2)}
+                  {utility.formatMoney(product.productPrice.toFixed(2))}
                 </Table.Cell>
                 <Table.Cell textAlign="right">{product.qnty}</Table.Cell>
                 <Table.Cell textAlign="right">
-                  {(product.productPrice * product.qnty).toFixed(2)}
+                  {utility.formatMoney(
+                    (product.productPrice * product.qnty).toFixed(2)
+                  )}
                 </Table.Cell>
               </Table.Row>
             ))}

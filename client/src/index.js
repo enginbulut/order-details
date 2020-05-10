@@ -8,7 +8,6 @@ import { CookiesProvider } from "react-cookie";
 import utility from "./util/api";
 
 import "./index.css";
-// import "./NTCUIKit.css";
 
 const history = createHistory();
 const store = configureStore(undefined, history);

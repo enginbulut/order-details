@@ -65,7 +65,7 @@ export const authUserWithFetch = (username, password) => dispatch =>
     api
       .authUserWithFetch(username, password)
       .then(data => {
-        dispatch(userAuthenticated(data.data));
+        dispatch(userAuthenticated(data));
         resolve(data);
       })
       .catch(err => {

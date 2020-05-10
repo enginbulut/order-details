@@ -64,9 +64,9 @@ const getRouter = () => {
   const products = require("./routes/api/products");
 
   router.add("/", index);
-  router.add("/api/users", users);
-  router.add("/api/roles", roles);
-  router.add("/api/products", products);
+  router.add("/users", users);
+  router.add("/roles", roles);
+  router.add("/products", products);
 
   return router;
 };
