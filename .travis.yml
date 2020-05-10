@@ -1,0 +1,18 @@
+language: generic 
+sudo: required
+services: 
+  - docker
+before_install:
+  - docker build -t enginbulut/order-detail-react -f ./client/Dockerfile.dev ./client
+script:
+  - docker run -e CI=true enginbulut/order-detail-react npm test
+after_success:
+  - docker build -t enginbulut/order-detail-client ./client
+  - docker build -t enginbulut/order-detail-nginx ./nginx
+  - docker build -t enginbulut/order-detail-server ./
+  #login to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #take those images and push them to docker hub
+  - docker push enginbulut/order-detail-client
+  - docker push enginbulut/order-detail-nginx
+  - docker push enginbulut/order-detail-server
