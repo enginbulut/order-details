@@ -1,5 +1,6 @@
 const restify = require("restify");
 const passport = require("passport");
+const corsMiddleware = require("restify-cors-middleware");
 
 const createServer = async port => {
   const router = getRouter();
@@ -7,6 +8,15 @@ const createServer = async port => {
     name: "Netuce API",
     version: "1.0.0"
   });
+
+  const cors = corsMiddleware({
+    origins: ["*"],
+    allowHeaders: ["Authorization"],
+    exposeHeaders: []
+  });
+
+  server.pre(cors.preflight);
+  server.use(cors.actual);
 
   server.use(
     restify.plugins.throttle({
