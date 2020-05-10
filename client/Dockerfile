@@ -1,16 +1,11 @@
-FROM node:alpine as node
-
-WORKDIR /usr/src/app
-COPY package*.json ./
-
+FROM node:alpine as builder
+WORKDIR /app
+COPY package*.json /app/
 RUN npm install
-
-COPY . .
-# Run the app when the container launches
-RUN npm run build
-
-FROM nginx:1.15.2-alpine
-COPY --from=node /usr/src/app/build /var/www/
-COPY ./nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-ENTRYPOINT ["nginx","-g","daemon off;"]
+COPY ./ /app/
+RUN npm run build 
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+FROM nginx
+EXPOSE 3000
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/build/ /usr/share/nginx/html
