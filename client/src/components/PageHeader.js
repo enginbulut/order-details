@@ -46,7 +46,6 @@ class PageHeader extends Component {
   };
 
   render() {
-    const { currentApp } = this.props;
     const { visible } = this.state;
     return (
       <div className="page-header">
