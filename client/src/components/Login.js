@@ -149,10 +149,11 @@ class Login extends Component {
               New to us? <button>Sign Up</button>
             </Message>
             {errorMessage}
-            {loadingMessage}
+            {loadingMessage}  
           </Grid.Column>
         </Grid>
       </div>
+      
     );
   }
 }
